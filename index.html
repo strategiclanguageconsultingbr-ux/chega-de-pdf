@@ -1146,14 +1146,14 @@
         <div class="mechanism-video">
           <video
             id="mechanism-video"
-            data-src="assets/chega-de-pdf-demo.mp4"
+            src="assets/chega-de-pdf-demo.mp4"
             poster="assets/chega-de-pdf-demo-poster.jpg"
             muted
             autoplay
             loop
             playsinline
             controls
-            preload="none"
+            preload="metadata"
             aria-label="Demonstração do Chega de PDF"
           ></video>
           <button type="button" class="unmute-chip" id="unmute-chip" aria-label="Ativar som do vídeo">
@@ -1476,7 +1476,6 @@
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Lazy-load the mechanism video: swap data-src → src and autoplay muted when it scrolls into view.
   // "Ativar som" chip lets the user unmute with one tap (browsers block autoplay with sound).
   var mechVideo = document.getElementById('mechanism-video');
   var unmuteChip = document.getElementById('unmute-chip');
@@ -1491,25 +1490,6 @@
     mechVideo.addEventListener('volumechange', function(){
       if (!mechVideo.muted) unmuteChip.classList.add('hidden');
     });
-  }
-  if (mechVideo && 'IntersectionObserver' in window) {
-    var vio = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) {
-          var v = e.target;
-          if (!v.src && v.dataset.src) {
-            v.src = v.dataset.src;
-            v.load();
-            var p = v.play();
-            if (p && typeof p.catch === 'function') p.catch(function(){});
-          }
-          vio.unobserve(v);
-        }
-      });
-    }, { threshold: 0.25, rootMargin: '0px 0px 200px 0px' });
-    vio.observe(mechVideo);
-  } else if (mechVideo && mechVideo.dataset.src) {
-    mechVideo.src = mechVideo.dataset.src;
   }
 
   // Sticky mobile CTA — show after scrolling past the hero
