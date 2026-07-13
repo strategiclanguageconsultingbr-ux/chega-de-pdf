@@ -818,7 +818,12 @@
   /* ============ GUARANTEE ============ */
   .guarantee { background: var(--white); text-align: center; }
   .guarantee-inner { max-width: 680px; margin: 0 auto; }
-  .seal { width: 80px; height: 80px; margin: 0 auto 20px; display: block; }
+  .seal {
+    width: 88px; height: 88px;
+    margin: 0 auto 24px;
+    display: block;
+    filter: drop-shadow(0 12px 20px rgba(23, 164, 92, 0.28));
+  }
   .guarantee p { color: var(--slate); font-size: 18px; max-width: 520px; margin: 0 auto; }
 
   /* ============ FAQ ============ */
@@ -1328,11 +1333,9 @@
 <section class="guarantee">
   <div class="container">
     <div class="guarantee-inner">
-      <svg class="seal reveal" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="70" cy="70" r="66" fill="#E4F5EC" stroke="#17A45C" stroke-width="3" stroke-dasharray="4 4"/>
-        <path d="M70 20 L100 32 V70 c0 22-14 38-30 46 -16-8-30-24-30-46 V32 Z" fill="#17A45C"/>
-        <path d="M55 72 l10 10 22-24" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="70" y="118" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="14" fill="#17A45C">7 DIAS</text>
+      <svg class="seal reveal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 8 L86 22 V52 c0 22-15 36-36 44 -21-8-36-22-36-44 V22 Z" fill="#17A45C"/>
+        <path d="M32 52 l12 12 26-30" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <h2 class="reveal">7 dias de garantia incondicional</h2>
       <p class="reveal">Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro em até 7 dias. Sem perguntas.</p>
